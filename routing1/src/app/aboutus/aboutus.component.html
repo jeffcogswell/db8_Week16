@@ -1,0 +1,9 @@
+<h2>About Us</h2>
+
+<input type="text" [(ngModel)]="entry" /> <button (click)="addWord()">Add</button>
+
+<h3>List</h3>
+
+<div *ngFor="let next of words">
+	{{ next }}
+</div>
