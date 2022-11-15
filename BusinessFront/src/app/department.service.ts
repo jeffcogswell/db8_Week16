@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Department } from './department';
 
 @Injectable({
 	providedIn: 'root'
@@ -15,5 +17,40 @@ export class DepartmentService {
 	//      Delete
 	//      Update
 
-	constructor() { }
+	/*
+	Here's a starter that only needs a URL
+	starterLine(cb: any) {
+		this.http.get<Department[]>('[URL GOES HERE]').subscribe(cb);
+	}
+
+	Here's a starter that takes an additional parameter
+	starterLine(cb: any, id: string) {
+		this.http.get<Department[]>(`[URL GOES HERE]/${id}`).subscribe(cb);
+	}
+	*/
+
+	getAll(cb: any) {
+		// https://localhost:7147/department
+		this.http.get<Department[]>('https://localhost:7147/department').subscribe(cb);
+	}
+
+	getOne(cb: any, id: string) {
+		// Typo! Take out the [].
+		this.http.get<Department>(`https://localhost:7147/department/${id}`).subscribe(cb);
+	}
+
+	add(cb: any, dep: Department) {
+		this.http.post<Department>('https://localhost:7147/department', dep).subscribe(cb);
+	}
+
+	delete(cb: any, id: string) {
+		// Typo! Take out the [].
+		this.http.delete<string>(`https://localhost:7147/department/${id}`).subscribe(cb);
+	}
+
+	update(cb: any, dep: Department) {
+		this.http.put<string>('https://localhost:7147/department', dep).subscribe(cb);
+	}
+
+	constructor(private http: HttpClient) { }
 }

@@ -39,15 +39,16 @@ namespace BusinessV2API.Controllers
 		public string Delete(string id)
 		{
 			Department.Delete(id);
-			return "ok";
+			return "{ \"status\": \"ok\" }";   // i.e. we are returning this string:     { "status": "ok" } That's one way.
 		}
 
 		// (U)pdate
 		[HttpPut]
-		public string Update(Department dep)
+		public Object Update(Department dep)
 		{
+			// Here we'll also return { "status": "ok" } but as an actual object, an "anonymous" object with no class to belong to.
 			Department.Update(dep);
-			return "ok";
+			return new { status = "ok" };
 		}
 	}
 }

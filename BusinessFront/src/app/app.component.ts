@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Department } from './department';
+import { DepartmentService } from './department.service';
 
 @Component({
 	selector: 'app-root',
@@ -9,7 +11,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 	title = 'BusinessFront';
 
-	constructor(public http: HttpClient) { }
+	constructor(public http: HttpClient, public depSrv: DepartmentService) { }
 
 	finishedWithCall(obj: any) {
 		console.log(obj);
@@ -26,5 +28,14 @@ export class AppComponent {
 		// parameter, a string for a URL, and it returns an object that has a method called subscribe. We the call that object's
 		// subscribe method, passing in the function we want called after the URL call comes back.
 		this.http.get<any>('https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1').subscribe(this.finishedWithCall);
+	}
+
+	getDepartments() {
+		this.depSrv.getAll(
+			(result: Department[]) => {
+				// Here is where we receive the department data.
+				console.log(result);
+			}
+		)
 	}
 }
