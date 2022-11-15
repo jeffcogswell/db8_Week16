@@ -17,6 +17,10 @@ export class DepartmentListComponent implements OnInit {
 	constructor(public DepSrv: DepartmentService) { }
 
 	ngOnInit(): void {
+		this.refresh();
+	}
+
+	refresh() {
 		this.DepSrv.getAll(
 			(result: Department[]) => {
 				// Inside here is where we put our code for doing something
@@ -30,10 +34,12 @@ export class DepartmentListComponent implements OnInit {
 
 	doDeleteOne(id: string) {
 
+		// After we delete, we have to refresh the list.
 		this.DepSrv.delete(
 			// First parameter for delete: The callback function
 			(result: string) => {
 				console.log(result);
+				this.refresh();
 			},
 			// Second parameter for delete: The id we want to delete
 			id
