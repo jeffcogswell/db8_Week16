@@ -16,6 +16,15 @@ export class EmployeeDetailComponent implements OnInit {
 	};
 
 	@Output() delete:EventEmitter<number> = new EventEmitter<number>();
+	@Output() update:EventEmitter<Employee> = new EventEmitter<Employee>();
+
+	editMode: boolean = false;
+	editFirstName: string = '';
+	editLastName: string = '';
+	editPhone: string = '';
+	editEmail: string = '';
+	editDepartment: string = '';
+	editHireDate: Date = new Date();
 
 	constructor() { }
 
@@ -24,5 +33,32 @@ export class EmployeeDetailComponent implements OnInit {
 
 	deleteMe() {
 		this.delete.emit(this.employee.id);
+	}
+
+	turnOnEditMode() {
+		this.editMode = true;
+		this.editFirstName = this.employee.firstname;
+		this.editLastName = this.employee.lastname;
+		this.editPhone = this.employee.phone;
+		this.editEmail = this.employee.email;
+		this.editDepartment = this.employee.department;
+		this.editHireDate = this.employee.hiredate;
+	}
+
+	saveChanges() {
+		let updatedEmp: Employee = {
+			id: this.employee.id,
+			firstname: this.editFirstName,
+			lastname: this.editLastName,
+			phone: this.editPhone,
+			email: this.editEmail,
+			department: this.editDepartment,
+			hiredate: this.editHireDate
+		};
+		this.update.emit(updatedEmp);
+	}
+
+	cancel() {
+		this.editMode = false;
 	}
 }

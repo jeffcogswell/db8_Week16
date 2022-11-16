@@ -10,6 +10,9 @@
 		<button (click)="saveNew()">Save</button>
 	</div>
 	<ng-container *ngFor="let emp of TheList">
-		<app-employee-detail [employee]="emp" (delete)="deleteOne($event)"></app-employee-detail>
+		<app-employee-detail [employee]="emp" 
+			(delete)="deleteOne($event)"
+			(update)="updateOne($event)"
+		></app-employee-detail>
 	</ng-container>
 </div>

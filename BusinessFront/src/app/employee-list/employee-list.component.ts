@@ -65,4 +65,13 @@ export class EmployeeListComponent implements OnInit {
 		);
 	}
 
+	updateOne(updatedEmp: Employee) {
+		this.empSrv.update(
+			(result: ApiResponse) => {
+				this.refresh();
+			},
+			updatedEmp
+		);
+	}
+
 }
