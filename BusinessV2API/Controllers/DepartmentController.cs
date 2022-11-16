@@ -36,19 +36,25 @@ namespace BusinessV2API.Controllers
 
 		// (D)elete
 		[HttpDelete("{id}")]
-		public string Delete(string id)
+		public ApiResponse Delete(string id)
 		{
 			Department.Delete(id);
-			return "{ \"status\": \"ok\" }";   // i.e. we are returning this string:     { "status": "ok" } That's one way.
+			//return "{ \"status\": \"ok\" }";   // i.e. we are returning this string:     { "status": "ok" } That's one way.
+			return new ApiResponse() { status = "ok" };
 		}
 
 		// (U)pdate
 		[HttpPut]
-		public Object Update(Department dep)
+		public ApiResponse Update(Department dep)
 		{
 			// Here we'll also return { "status": "ok" } but as an actual object, an "anonymous" object with no class to belong to.
+			// Jeff kind of botched this; instead of creating anonymous objects, we really should create a class.
+			// We only want to ever send back a list or an object from our API. So it will go back as
+			// either [] or {}. Technically that's what we were doing, but that was too hackish.
+			// So we created an actual class called ApiResponse.
 			Department.Update(dep);
-			return new { status = "ok" };
+			//return new { status = "ok" };
+			return new ApiResponse() { status = "ok" };
 		}
 	}
 }

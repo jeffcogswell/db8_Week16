@@ -1,0 +1,29 @@
+<div>
+	<table rules="all">
+		<tbody>
+			<tr>
+				<td>id</td><td>{{ employee.id }} </td>
+			</tr>
+			<tr>
+				<td>First Name</td><td>{{ employee.firstname }} </td>
+			</tr>
+			<tr>
+				<td>Last Name</td><td>{{ employee.lastname }} </td>
+			</tr>
+			<tr>
+				<td>Phone</td><td>{{ employee.phone }} </td>
+			</tr>
+			<tr>
+				<td>Email</td><td>{{ employee.email }} </td>
+			</tr>
+			<tr>
+				<td>Department</td><td>{{ employee.department }} </td>
+			</tr>
+			<tr>
+				<td>Hire Date</td><td>{{ employee.hiredate }} </td>
+			</tr>
+		</tbody>
+	</table>
+	<button>Edit</button>
+	<button (click)="deleteMe()">Delete</button>
+</div>
