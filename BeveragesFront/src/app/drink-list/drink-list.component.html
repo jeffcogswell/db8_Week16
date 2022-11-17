@@ -1,1 +1,8 @@
-<p>drink-list works!</p>
+<div>
+	<ng-container *ngFor="let drink of TheList">
+		<app-drink-detail [drink]="drink"
+			(delete)="deleteOne($event)"
+			(update)="updateOne($event)"
+		></app-drink-detail>
+	</ng-container>
+</div>
