@@ -26,11 +26,31 @@ export class DrinkListComponent implements OnInit {
 	}
 
 	deleteOne(id: number) {
+		this.DrnSrv.delete(
 
+			// First parameter: The callback function
+			() => {
+				this.refresh()
+			},
+
+
+			// Second parameter: the ID we are deleting
+			id
+			
+		);
 	}
 
 	updateOne(drink: Drink) {
+		this.DrnSrv.update(
 
+			// First parameter: The callback functino
+			() => {
+				this.refresh();
+			},
+
+			// Second parameter: the full object we're updating
+			drink
+		)
 	}
 
 }
