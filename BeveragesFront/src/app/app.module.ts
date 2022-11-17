@@ -4,10 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { DrinkDetailComponent } from './drink-detail/drink-detail.component';
+import { DrinkListComponent } from './drink-list/drink-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DrinkDetailComponent,
+    DrinkListComponent
   ],
   imports: [
     BrowserModule,
