@@ -25,7 +25,7 @@ namespace RepairShopAPI.Controllers
 			return Instrument.Add(inst);
 		}
 
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public void Delete(int id)
 		{
 			Instrument.Delete(id);
