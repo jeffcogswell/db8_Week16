@@ -1,6 +1,6 @@
 ﻿using Dapper.Contrib.Extensions;
 
-namespace RepairShopAPI.Models
+namespace RepairShopAPI
 {
 	[Table("instrument")]
 	public class Instrument
