@@ -37,4 +37,15 @@ export class OrderListComponent implements OnInit {
 		);
 	}
 
+	openOrder(id: number) {
+		this.OrderSrv.getOne(
+
+			(result: RepairOrder) => {
+
+			},
+			
+			id
+		)
+	}
+
 }

@@ -4,5 +4,6 @@
 
 	<div *ngFor="let order of repairlist">
 		{{ order.customer }} {{ order.instrument }}
+		<button (click)="openOrder(order.id)">Open</button>
 	</div>
 </div>
