@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Instrument } from '../instrument';
 import { InstrumentService } from '../instrument.service';
 import { RepairOrder } from '../repair-order';
@@ -16,6 +16,8 @@ export class AddOrderComponent implements OnInit {
 
 	TheInstruments: Instrument[] = [];
 
+	@Output() save:EventEmitter<RepairOrder> = new EventEmitter<RepairOrder>();
+
 	constructor(private InstSrv: InstrumentService) { 
 		InstSrv.getAll(
 			(result: Instrument[]) => {
@@ -27,8 +29,8 @@ export class AddOrderComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
-	save() {
-		
+	saveIt() {
+		this.save.emit(this.newOrder);
 	}
 
 }

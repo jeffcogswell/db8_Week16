@@ -5,11 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AddOrderComponent } from './add-order/add-order.component';
+import { OrderListComponent } from './order-list/order-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddOrderComponent
+    AddOrderComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,
