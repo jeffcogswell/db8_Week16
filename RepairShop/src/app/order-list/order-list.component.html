@@ -6,4 +6,8 @@
 		{{ order.customer }} {{ order.instrument }}
 		<button (click)="openOrder(order.id)">Open</button>
 	</div>
+
+	<div *ngIf="editOrder.id > 0">
+		<app-edit-order [editOrder]="editOrder"></app-edit-order>
+	</div>
 </div>

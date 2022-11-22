@@ -12,6 +12,11 @@ export class OrderListComponent implements OnInit {
 
 	repairlist: ShortRepairList[] = [];
 
+	editOrder: RepairOrder = {
+		id: 0, customer: '', instrument_id: 0,
+		status: 0, price: 0, notes: '', bookmark: false
+	};
+
 	constructor(private OrderSrv: RepairOrderService) {
 		OrderSrv.shortList(
 
@@ -41,7 +46,7 @@ export class OrderListComponent implements OnInit {
 		this.OrderSrv.getOne(
 
 			(result: RepairOrder) => {
-
+				this.editOrder = result;
 			},
 			
 			id
