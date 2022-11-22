@@ -1,15 +1,16 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Instrument } from '../instrument';
 import { InstrumentService } from '../instrument.service';
 import { RepairOrder } from '../repair-order';
 
 @Component({
-	selector: 'app-add-order',
-	templateUrl: './add-order.component.html',
-	styleUrls: ['./add-order.component.css']
+	selector: 'app-edit-order',
+	templateUrl: './edit-order.component.html',
+	styleUrls: ['./edit-order.component.css']
 })
-export class AddOrderComponent implements OnInit {
-	newOrder: RepairOrder = {
+export class EditOrderComponent implements OnInit {
+
+	@Input() editOrder: RepairOrder = {
 		id: 0, customer: '', instrument_id: 0,
 		status: 0, price: 0, notes: '', bookmark: false
 	};
@@ -30,7 +31,6 @@ export class AddOrderComponent implements OnInit {
 	}
 
 	saveIt() {
-		this.save.emit(this.newOrder);
+		this.save.emit(this.editOrder);
 	}
-
 }

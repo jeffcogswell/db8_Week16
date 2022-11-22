@@ -4,6 +4,8 @@ namespace RepairShopAPI
 {
 	public class DAL
 	{
-		public static MySqlConnection DB;
+		//GET RID OF THE DB LINE
+		//public static MySqlConnection DB;
+		public static string CS; // Connection String
 	}
 }
