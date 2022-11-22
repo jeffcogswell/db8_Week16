@@ -43,5 +43,12 @@ namespace RepairShopAPI.Controllers
 		{
 			return ShortRepairList.getAll();
 		}
+
+		// GET /repairorder/bookmarks
+		[HttpGet("bookmarks")]
+		public List<RepairOrder> GetBookmarks()
+		{
+			return RepairOrder.GetBookmarks();
+		}
 	}
 }

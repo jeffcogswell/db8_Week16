@@ -7,18 +7,22 @@ import { AppComponent } from './app.component';
 import { AddOrderComponent } from './add-order/add-order.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
+import { BookmarksComponent } from './bookmarks/bookmarks.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddOrderComponent,
     OrderListComponent,
-    EditOrderComponent
+    EditOrderComponent,
+    BookmarksComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
