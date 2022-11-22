@@ -9,13 +9,23 @@ import { RepairOrderService } from '../repair-order.service';
 })
 export class OrderListComponent implements OnInit {
 
-	constructor(private OrderSrv: RepairOrderService) { }
+	constructor(private OrderSrv: RepairOrderService) {
+		
+	}
 
 	ngOnInit(): void {
 	}
 
 	save(order: RepairOrder) {
+		this.OrderSrv.add(
 
+			(result: RepairOrder) => {
+				alert(result.id);
+			},
+
+			order
+
+		);
 	}
 
 }
