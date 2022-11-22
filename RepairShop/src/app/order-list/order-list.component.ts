@@ -18,7 +18,14 @@ export class OrderListComponent implements OnInit {
 	};
 
 	constructor(private OrderSrv: RepairOrderService) {
-		OrderSrv.shortList(
+		this.refresh();
+	}
+
+	ngOnInit(): void {
+	}
+
+	refresh() {
+		this.OrderSrv.shortList(
 
 			(result: ShortRepairList[]) => {
 				this.repairlist = result;
@@ -27,14 +34,11 @@ export class OrderListComponent implements OnInit {
 		)
 	}
 
-	ngOnInit(): void {
-	}
-
 	save(order: RepairOrder) {
 		this.OrderSrv.add(
 
 			(result: RepairOrder) => {
-				alert(result.id);
+				this.refresh();
 			},
 
 			order
@@ -50,6 +54,18 @@ export class OrderListComponent implements OnInit {
 			},
 			
 			id
+		)
+	}
+
+	update(order: RepairOrder) {
+		this.OrderSrv.update(
+
+			() => {
+				this.refresh();
+			},
+
+			order
+
 		)
 	}
 
