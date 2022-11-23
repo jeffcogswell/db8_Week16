@@ -24,6 +24,9 @@ create table instrument (
 create view shortrepairlist as
 	select ro.id, ro.customer, ins.name as instrument from repairorder ro join instrument ins on ro.instrument_id = ins.id;
 
+create view fullorder as
+    select ro.*, ins.name as instrument from repairorder ro join instrument ins on ro.instrument_id = ins.id;
+
 insert into instrument (name, description) values ('Alto Saxophone', 'Woodwind made of brass for a unique sound');
 insert into instrument (name, description) values ('Tenor Saxophone', 'Woodwind made of brass for a unique sound');
 insert into instrument (name, description) values ('Clarinet', 'A squawky woodwind that sounds horrible');
