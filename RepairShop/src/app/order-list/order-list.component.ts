@@ -18,6 +18,7 @@ export class OrderListComponent implements OnInit {
 	};
 
 	searchName: string = '';
+	bookmarkCheck: boolean = false;
 
 	constructor(private OrderSrv: RepairOrderService) {
 		this.refresh();
@@ -81,6 +82,30 @@ export class OrderListComponent implements OnInit {
 			this.searchName
 
 		)
+	}
+
+	changeBookmarks() {
+		console.log('CHECKBOX CHANGED!');
+		console.log(this.bookmarkCheck);
+
+		this.searchName = '';
+
+		if (!this.bookmarkCheck) {
+			this.refresh();
+		}
+		else {
+			this.OrderSrv.bookmarks(
+
+				(result: ShortRepairList[]) => {
+					this.repairlist = result;
+				}
+			)
+		}
+	}
+
+	clear() {
+		this.searchName = '';
+		this.refresh();
 	}
 
 }

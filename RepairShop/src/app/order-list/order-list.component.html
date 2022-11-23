@@ -3,9 +3,14 @@
 	<app-add-order (save)="save($event)"></app-add-order>
 
 	<div class="toolbar">
-		<input type="checkbox" /> Bookmarks<br />
+		<!--
+			 DO NOT use (click) on checkboxes! It happens before the bound value changes.
+		     INSTEAD, USE (change) for checkboxes! 
+		-->
+		<input type="checkbox" (change)="changeBookmarks()" [(ngModel)]="bookmarkCheck" /> Bookmarks<br />
 		Search by name: <input type="text" [(ngModel)]="searchName" />
 		<button (click)="search()">Search</button>
+		<button (click)="clear()">Clear</button>
 	</div>
 
 	<div *ngFor="let order of repairlist">
