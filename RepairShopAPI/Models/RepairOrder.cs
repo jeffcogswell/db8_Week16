@@ -61,16 +61,6 @@ namespace RepairShopAPI
             db.Close();
         }
 
-        // Read all favorites
-        public static List<RepairOrder> GetBookmarks()
-        {
-			MySqlConnection db = new MySqlConnection(DAL.CS);
-			db.Open();
-            var result = db.Query<RepairOrder>("select * from repairorder where bookmark = true").ToList();
-            db.Close();
-            return result;
-		}
-
 	}
 }
 
