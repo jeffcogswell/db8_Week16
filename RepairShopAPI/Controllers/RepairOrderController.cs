@@ -50,5 +50,13 @@ namespace RepairShopAPI.Controllers
 		{
 			return ShortRepairList.GetBookmarks();
 		}
+
+		// GET /repairorder/searchbyname/{name}
+		// GET /repairorder/searchbyname/johnson
+		[HttpGet("searchbyname/{name}")]
+		public List<ShortRepairList> SearchByName(string name)
+		{
+			return ShortRepairList.SearchByName(name);
+		}
 	}
 }
