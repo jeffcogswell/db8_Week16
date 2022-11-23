@@ -4,8 +4,8 @@
 
 	<div class="toolbar">
 		<input type="checkbox" /> Bookmarks<br />
-		Search by name: <input type="text" />
-		<button>Search</button>
+		Search by name: <input type="text" [(ngModel)]="searchName" />
+		<button (click)="search()">Search</button>
 	</div>
 
 	<div *ngFor="let order of repairlist">

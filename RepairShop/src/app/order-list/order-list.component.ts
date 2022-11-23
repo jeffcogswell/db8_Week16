@@ -17,6 +17,8 @@ export class OrderListComponent implements OnInit {
 		status: 0, price: 0, notes: '', bookmark: false
 	};
 
+	searchName: string = '';
+
 	constructor(private OrderSrv: RepairOrderService) {
 		this.refresh();
 	}
@@ -65,6 +67,18 @@ export class OrderListComponent implements OnInit {
 			},
 
 			order
+
+		)
+	}
+
+	search() {
+		this.OrderSrv.searchByName(
+
+			(result: ShortRepairList[]) => {
+				this.repairlist = result;
+			},
+
+			this.searchName
 
 		)
 	}
